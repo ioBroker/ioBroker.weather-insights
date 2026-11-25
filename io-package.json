@@ -1,0 +1,138 @@
+{
+  "common": {
+    "name": "weather-insights",
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "initial release",
+        "de": "Erstveröffentlichung",
+        "ru": "первый релиз",
+        "pt": "lançamento inicial",
+        "nl": "eerste release",
+        "fr": "première version",
+        "it": "rilascio iniziale",
+        "es": "lanzamiento inicial",
+        "pl": "pierwsze wydanie",
+        "uk": "перший реліз",
+        "zh-cn": "初始版本"
+      }
+    },
+    "titleLang": {
+      "en": "Weather insights",
+      "de": "Wetter-Schlussfolgerungen",
+      "ru": "Выводы о погоде",
+      "pt": "Conclusões meteorológicas",
+      "nl": "Weerconclusies",
+      "fr": "Déductions météo",
+      "it": "Deduzioni meteo",
+      "es": "Conclusiones meteorológicas",
+      "pl": "Wnioski pogodowe",
+      "uk": "Висновки про погоду",
+      "zh-cn": "天气推断"
+    },
+    "desc": {
+      "en": "Derives conclusions from weather sensors and the Open-Meteo forecast: pressure tendency, storm risk, Zambretti forecast, fog, frost, thunderstorms, fronts, ventilation and weather sensitivity (migraine)",
+      "de": "Zieht Schlüsse aus Wettersensoren und der Open-Meteo-Vorhersage: Drucktendenz, Sturmrisiko, Zambretti-Vorhersage, Nebel, Frost, Gewitter, Fronten, Lüftung und Wetterfühligkeit (Migräne)",
+      "ru": "Делает выводы из данных метеодатчиков и прогноза Open-Meteo: тенденция давления, риск шторма, прогноз Замбретти, туман, мороз, грозы, фронты, проветривание и метеочувствительность (мигрень)",
+      "pt": "Tira conclusões de sensores meteorológicos e da previsão Open-Meteo: tendência da pressão, risco de tempestade, previsão Zambretti, nevoeiro, geada, trovoadas, frentes, ventilação e sensibilidade ao tempo (enxaqueca)",
+      "nl": "Trekt conclusies uit weersensoren en de Open-Meteo-voorspelling: luchtdruktendens, stormrisico, Zambretti-voorspelling, mist, vorst, onweer, fronten, ventilatie en weergevoeligheid (migraine)",
+      "fr": "Tire des conclusions des capteurs météo et des prévisions Open-Meteo : tendance de la pression, risque de tempête, prévision Zambretti, brouillard, gel, orages, fronts, aération et sensibilité météo (migraine)",
+      "it": "Trae conclusioni dai sensori meteo e dalle previsioni Open-Meteo: tendenza della pressione, rischio tempesta, previsione Zambretti, nebbia, gelo, temporali, fronti, ventilazione e meteoropatia (emicrania)",
+      "es": "Extrae conclusiones de los sensores meteorológicos y del pronóstico de Open-Meteo: tendencia de la presión, riesgo de tormenta, pronóstico Zambretti, niebla, helada, tormentas, frentes, ventilación y sensibilidad al tiempo (migraña)",
+      "pl": "Wyciąga wnioski z czujników pogodowych i prognozy Open-Meteo: tendencja ciśnienia, ryzyko burzy, prognoza Zambrettiego, mgła, przymrozek, burze, fronty, wietrzenie i meteopatia (migrena)",
+      "uk": "Робить висновки з метеодатчиків і прогнозу Open-Meteo: тенденція тиску, ризик шторму, прогноз Замбретті, туман, мороз, грози, фронти, провітрювання та метеочутливість (мігрень)",
+      "zh-cn": "根据气象传感器和 Open-Meteo 预报得出结论：气压趋势、风暴风险、Zambretti 预报、雾、霜冻、雷暴、锋面、通风建议和天气敏感（偏头痛）"
+    },
+    "authors": [
+      "bluefox <dogafox@gmail.com>"
+    ],
+    "keywords": [
+      "weather",
+      "barometer",
+      "pressure",
+      "tendency",
+      "storm",
+      "zambretti",
+      "dew point",
+      "fog",
+      "frost",
+      "migraine",
+      "open-meteo"
+    ],
+    "licenseInformation": {
+      "type": "free",
+      "license": "MIT"
+    },
+    "platform": "Javascript/Node.js",
+    "icon": "weather-insights.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/ioBroker/ioBroker.weather-insights/main/admin/weather-insights.png",
+    "readme": "https://github.com/ioBroker/ioBroker.weather-insights/blob/main/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "weather",
+    "adminUI": {
+      "config": "json"
+    },
+    "compact": true,
+    "tier": 3,
+    "dependencies": [
+      {
+        "js-controller": ">=6.0.11"
+      }
+    ],
+    "globalDependencies": [
+      {
+        "admin": ">=7.6.17"
+      }
+    ],
+    "connectionType": "cloud",
+    "dataSource": "poll"
+  },
+  "native": {
+    "pressureId": "",
+    "pressureType": "auto",
+    "temperatureId": "",
+    "humidityId": "",
+    "windSpeedId": "",
+    "windGustId": "",
+    "windUnit": "auto",
+    "windDirectionId": "",
+    "indoorTemperatureId": "",
+    "indoorHumidityId": "",
+    "useSystemLocation": true,
+    "latitude": "",
+    "longitude": "",
+    "altitude": "",
+    "forecastEnabled": true,
+    "forecastInterval": 60,
+    "useHistory": true,
+    "healthEnabled": true,
+    "sensitivity": "normal",
+    "healthDirection": "both"
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Forecast reachable",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  ]
+}
