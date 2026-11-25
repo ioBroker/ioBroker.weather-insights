@@ -100,6 +100,7 @@ class WeatherInsightsElement extends IobWebComponent<InsightsSettings> {
                 minimumFractionDigits: digits,
                 maximumFractionDigits: digits,
                 signDisplay: sign ? 'exceptZero' : 'auto',
+                useGrouping: false,
             });
         } catch {
             return (sign && value > 0 ? '+' : '') + value.toFixed(digits);
@@ -116,7 +117,7 @@ class WeatherInsightsElement extends IobWebComponent<InsightsSettings> {
         const tendency = toNumber(v['pressure.tendency']);
         const change = toNumber(v['pressure.change3h']);
         if (tendency !== null) {
-            const cls = tendency < 0 ? 'falling' : tendency > 0 ? 'rising' : 'steady';
+            const cls = tendency <= -2 ? 'falling' : tendency >= 2 ? 'rising' : 'steady';
             const text = String(v['pressure.tendencyText'] ?? '');
             const delta = change !== null ? ` · ${this.#format(change, 1, true)} hPa ${word('in3h', lang)}` : '';
             html += `<div class="trend ${cls}"><span style="display:inline-flex;transform:rotate(${-tendency * 20}deg)">${ARROW}</span><span>${escapeXml(text + delta)}</span></div>`;
@@ -134,7 +135,7 @@ class WeatherInsightsElement extends IobWebComponent<InsightsSettings> {
         if (course.length < 2) {
             return '';
         }
-        const W = 400;
+        const W = 560;
         const H = 150;
         const left = 34;
         const right = 6;
@@ -173,17 +174,33 @@ class WeatherInsightsElement extends IobWebComponent<InsightsSettings> {
             svg += `<line class="grid" x1="${left}" x2="${W - right}" y1="${gy}" y2="${gy}"/>`;
             svg += `<text class="axis" x="${left - 4}" y="${gy}" text-anchor="end" dominant-baseline="middle">${g}</text>`;
         }
-        // midnights and hours
+        // midnights with the name of the next day, hours 00 and 12 in local time
         const first = new Date(t0);
         first.setHours(24, 0, 0, 0);
-        for (let ts = first.getTime(); ts < t1; ts += 24 * HOUR) {
+        const dayWords: WordKey[] = ['tomorrow', 'dayAfter'];
+        let dayIndex = first.getTime() - Date.now() > 0 ? 0 : -1;
+        for (const d = new Date(first); d.getTime() < t1; d.setDate(d.getDate() + 1)) {
+            const ts = d.getTime();
             const mx = x(ts).toFixed(1);
             svg += `<line class="midnight" x1="${mx}" x2="${mx}" y1="${top}" y2="${H - bottom}"/>`;
+            const name =
+                dayIndex < 0
+                    ? word('today', this.systemLang)
+                    : dayWords[dayIndex]
+                      ? word(dayWords[dayIndex], this.systemLang)
+                      : '';
+            if (name && x(ts) < W - right - 40) {
+                svg += `<text class="axis" x="${(x(ts) + 4).toFixed(1)}" y="${top + 10}">${escapeXml(name)}</text>`;
+            }
+            dayIndex++;
         }
-        for (let ts = Math.ceil(t0 / (6 * HOUR)) * 6 * HOUR; ts <= t1; ts += 6 * HOUR) {
-            const hour = new Date(ts).getHours();
-            if (hour % 12 === 0) {
-                svg += `<text class="axis" x="${x(ts).toFixed(1)}" y="${H - 4}" text-anchor="middle">${String(hour).padStart(2, '0')}</text>`;
+        const hourStart = new Date(t0);
+        hourStart.setMinutes(0, 0, 0);
+        hourStart.setHours(Math.ceil(hourStart.getHours() / 12) * 12);
+        for (const d = hourStart; d.getTime() <= t1; d.setHours(d.getHours() + 12)) {
+            const ts = d.getTime();
+            if (ts >= t0) {
+                svg += `<text class="axis" x="${x(ts).toFixed(1)}" y="${H - 4}" text-anchor="middle">${String(d.getHours()).padStart(2, '0')}</text>`;
             }
         }
         // course: measured part solid, forecast dashed
