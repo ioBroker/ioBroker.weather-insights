@@ -91,6 +91,12 @@ export const STATES: StateDef[] = [
         type: 'string',
         role: 'weather.title.forecast.0',
     },
+    {
+        id: 'pressure.course',
+        name: 'Hourly sea-level pressure from 24 h ago to 48 h ahead (JSON: [[ts, hPa, 0 measured | 1 forecast]])',
+        type: 'string',
+        role: 'json',
+    },
 
     { id: 'storm.level', name: 'Storm risk', type: 'number', role: 'value.warning', states: LEVEL_0_3, min: 0, max: 3 },
     { id: 'storm.text', name: 'Storm risk', type: 'string', role: 'text' },

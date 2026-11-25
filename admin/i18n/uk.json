@@ -1,4 +1,6 @@
 {
+    "Overview": "Огляд",
+    "The same view is available as a widget in vis-2, devices and Aura.": "Той самий вигляд доступний як віджет у vis-2, devices і Aura.",
     "Sensors": "Датчики",
     "Every field is optional. If a sensor is not set, the value of the Open-Meteo forecast is used.": "Усі поля необов'язкові. Якщо датчик не вказано, використовується значення прогнозу Open-Meteo.",
     "Outdoor sensors": "Зовнішні датчики",

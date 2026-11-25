@@ -1,4 +1,6 @@
 {
+    "Overview": "Przegląd",
+    "The same view is available as a widget in vis-2, devices and Aura.": "Ten sam widok jest dostępny jako widżet w vis-2, devices i Aura.",
     "Sensors": "Czujniki",
     "Every field is optional. If a sensor is not set, the value of the Open-Meteo forecast is used.": "Każde pole jest opcjonalne. Jeśli czujnik nie jest ustawiony, używana jest wartość z prognozy Open-Meteo.",
     "Outdoor sensors": "Czujniki zewnętrzne",

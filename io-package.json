@@ -74,6 +74,9 @@
     "adminUI": {
       "config": "json"
     },
+    "webComponents": [
+      "webcomponents/weather-insights.json"
+    ],
     "compact": true,
     "tier": 3,
     "dependencies": [
@@ -83,7 +86,7 @@
     ],
     "globalDependencies": [
       {
-        "admin": ">=7.6.17"
+        "admin": ">=8.3.10"
       }
     ],
     "connectionType": "cloud",

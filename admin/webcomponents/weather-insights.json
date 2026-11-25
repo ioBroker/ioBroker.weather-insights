@@ -1,0 +1,128 @@
+{
+    "$schema": "https://raw.githubusercontent.com/ioBroker/web-components/main/schemas/manifest.json",
+    "manifestVersion": 1,
+    "tag": "iob-weather-insights",
+    "name": {
+        "en": "Weather insights",
+        "de": "Wetter-Schlussfolgerungen",
+        "ru": "Выводы о погоде",
+        "pt": "Conclusões meteorológicas",
+        "nl": "Weerconclusies",
+        "fr": "Déductions météo",
+        "it": "Deduzioni meteo",
+        "es": "Conclusiones meteorológicas",
+        "pl": "Wnioski pogodowe",
+        "uk": "Висновки про погоду",
+        "zh-cn": "天气推断"
+    },
+    "description": {
+        "en": "Pressure course with tendency and Zambretti forecast, weather warnings and weather sensitivity (migraine) for today and the next days",
+        "de": "Luftdruckverlauf mit Tendenz und Zambretti-Vorhersage, Wetterwarnungen und Wetterfühligkeit (Migräne) für heute und die nächsten Tage",
+        "ru": "Ход давления с тенденцией и прогнозом Замбретти, погодные предупреждения и метеочувствительность (мигрень) на сегодня и следующие дни",
+        "pt": "Curso da pressão com tendência e previsão Zambretti, avisos meteorológicos e sensibilidade ao tempo (enxaqueca) para hoje e os próximos dias",
+        "nl": "Luchtdrukverloop met tendens en Zambretti-voorspelling, weerwaarschuwingen en weergevoeligheid (migraine) voor vandaag en de komende dagen",
+        "fr": "Évolution de la pression avec tendance et prévision Zambretti, alertes météo et sensibilité météo (migraine) pour aujourd'hui et les jours suivants",
+        "it": "Andamento della pressione con tendenza e previsione Zambretti, avvisi meteo e meteoropatia (emicrania) per oggi e i prossimi giorni",
+        "es": "Curso de la presión con tendencia y pronóstico Zambretti, avisos meteorológicos y sensibilidad al tiempo (migraña) para hoy y los próximos días",
+        "pl": "Przebieg ciśnienia z tendencją i prognozą Zambrettiego, ostrzeżenia pogodowe i meteopatia (migrena) na dziś i kolejne dni",
+        "uk": "Хід тиску з тенденцією та прогнозом Замбретті, погодні попередження та метеочутливість (мігрень) на сьогодні й наступні дні",
+        "zh-cn": "气压走势（含趋势和 Zambretti 预报）、天气警告以及今天和未来几天的天气敏感（偏头痛）"
+    },
+    "icon": "weather-insights.svg",
+    "module": "weather-insights.js",
+    "size": {
+        "width": 380,
+        "height": 440
+    },
+    "settings": {
+        "type": "panel",
+        "items": {
+            "instance": {
+                "type": "instance",
+                "adapter": "weather-insights",
+                "default": "weather-insights.0",
+                "label": {
+                    "en": "Instance",
+                    "de": "Instanz",
+                    "ru": "Экземпляр",
+                    "pt": "Instância",
+                    "nl": "Instantie",
+                    "fr": "Instance",
+                    "it": "Istanza",
+                    "es": "Instancia",
+                    "pl": "Instancja",
+                    "uk": "Екземпляр",
+                    "zh-cn": "实例"
+                }
+            },
+            "showPressure": {
+                "type": "checkbox",
+                "default": true,
+                "label": {
+                    "en": "Show pressure, tendency and Zambretti forecast",
+                    "de": "Luftdruck, Tendenz und Zambretti-Vorhersage anzeigen",
+                    "ru": "Показывать давление, тенденцию и прогноз Замбретти",
+                    "pt": "Mostrar pressão, tendência e previsão Zambretti",
+                    "nl": "Luchtdruk, tendens en Zambretti-voorspelling weergeven",
+                    "fr": "Afficher la pression, la tendance et la prévision Zambretti",
+                    "it": "Mostra pressione, tendenza e previsione Zambretti",
+                    "es": "Mostrar presión, tendencia y pronóstico Zambretti",
+                    "pl": "Pokaż ciśnienie, tendencję i prognozę Zambrettiego",
+                    "uk": "Показувати тиск, тенденцію та прогноз Замбретті",
+                    "zh-cn": "显示气压、趋势和 Zambretti 预报"
+                }
+            },
+            "showChart": {
+                "type": "checkbox",
+                "default": true,
+                "label": {
+                    "en": "Show pressure course",
+                    "de": "Luftdruckverlauf anzeigen",
+                    "ru": "Показывать ход давления",
+                    "pt": "Mostrar curso da pressão",
+                    "nl": "Luchtdrukverloop weergeven",
+                    "fr": "Afficher l'évolution de la pression",
+                    "it": "Mostra l'andamento della pressione",
+                    "es": "Mostrar curso de la presión",
+                    "pl": "Pokaż przebieg ciśnienia",
+                    "uk": "Показувати хід тиску",
+                    "zh-cn": "显示气压走势"
+                }
+            },
+            "showWarnings": {
+                "type": "checkbox",
+                "default": true,
+                "label": {
+                    "en": "Show weather warnings",
+                    "de": "Wetterwarnungen anzeigen",
+                    "ru": "Показывать погодные предупреждения",
+                    "pt": "Mostrar avisos meteorológicos",
+                    "nl": "Weerwaarschuwingen weergeven",
+                    "fr": "Afficher les alertes météo",
+                    "it": "Mostra avvisi meteo",
+                    "es": "Mostrar avisos meteorológicos",
+                    "pl": "Pokaż ostrzeżenia pogodowe",
+                    "uk": "Показувати погодні попередження",
+                    "zh-cn": "显示天气警告"
+                }
+            },
+            "showHealth": {
+                "type": "checkbox",
+                "default": true,
+                "label": {
+                    "en": "Show weather sensitivity",
+                    "de": "Wetterfühligkeit anzeigen",
+                    "ru": "Показывать метеочувствительность",
+                    "pt": "Mostrar sensibilidade ao tempo",
+                    "nl": "Weergevoeligheid weergeven",
+                    "fr": "Afficher la sensibilité météo",
+                    "it": "Mostra meteoropatia",
+                    "es": "Mostrar sensibilidad al tiempo",
+                    "pl": "Pokaż meteopatię",
+                    "uk": "Показувати метеочутливість",
+                    "zh-cn": "显示天气敏感"
+                }
+            }
+        }
+    }
+}

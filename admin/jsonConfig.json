@@ -2,6 +2,26 @@
     "i18n": true,
     "type": "tabs",
     "items": {
+        "_overview": {
+            "type": "panel",
+            "label": "Overview",
+            "items": {
+                "_view": {
+                    "type": "custom",
+                    "webComponent": "webcomponents/weather-insights.json",
+                    "settings": {
+                        "instance": "weather-insights.${_instance}"
+                    },
+                    "height": 460,
+                    "help": "The same view is available as a widget in vis-2, devices and Aura.",
+                    "xs": 12,
+                    "sm": 12,
+                    "md": 8,
+                    "lg": 6,
+                    "xl": 6
+                }
+            }
+        },
         "_sensors": {
             "type": "panel",
             "label": "Sensors",
@@ -36,9 +56,18 @@
                     "label": "Pressure type",
                     "help": "Absolute sensors (e.g. BME280) measure the station pressure. It is reduced to sea level with the altitude.",
                     "options": [
-                        { "label": "Detect automatically", "value": "auto" },
-                        { "label": "Station pressure (absolute)", "value": "station" },
-                        { "label": "Sea-level pressure (relative)", "value": "sealevel" }
+                        {
+                            "label": "Detect automatically",
+                            "value": "auto"
+                        },
+                        {
+                            "label": "Station pressure (absolute)",
+                            "value": "station"
+                        },
+                        {
+                            "label": "Sea-level pressure (relative)",
+                            "value": "sealevel"
+                        }
                     ],
                     "xs": 12,
                     "sm": 12,
@@ -80,11 +109,26 @@
                     "type": "select",
                     "label": "Wind unit",
                     "options": [
-                        { "label": "From the unit of the state", "value": "auto" },
-                        { "label": "m/s", "value": "ms" },
-                        { "label": "km/h", "value": "kmh" },
-                        { "label": "mph", "value": "mph" },
-                        { "label": "knots", "value": "kn" }
+                        {
+                            "label": "From the unit of the state",
+                            "value": "auto"
+                        },
+                        {
+                            "label": "m/s",
+                            "value": "ms"
+                        },
+                        {
+                            "label": "km/h",
+                            "value": "kmh"
+                        },
+                        {
+                            "label": "mph",
+                            "value": "mph"
+                        },
+                        {
+                            "label": "knots",
+                            "value": "kn"
+                        }
                     ],
                     "xs": 12,
                     "sm": 12,
@@ -242,9 +286,18 @@
                     "label": "Sensitivity",
                     "hidden": "!data.healthEnabled",
                     "options": [
-                        { "label": "Low", "value": "low" },
-                        { "label": "Normal", "value": "normal" },
-                        { "label": "High", "value": "high" }
+                        {
+                            "label": "Low",
+                            "value": "low"
+                        },
+                        {
+                            "label": "Normal",
+                            "value": "normal"
+                        },
+                        {
+                            "label": "High",
+                            "value": "high"
+                        }
                     ],
                     "newLine": true,
                     "xs": 12,
@@ -258,9 +311,18 @@
                     "label": "Pressure changes that matter",
                     "hidden": "!data.healthEnabled",
                     "options": [
-                        { "label": "Rising and falling", "value": "both" },
-                        { "label": "Only falling", "value": "falling" },
-                        { "label": "Only rising", "value": "rising" }
+                        {
+                            "label": "Rising and falling",
+                            "value": "both"
+                        },
+                        {
+                            "label": "Only falling",
+                            "value": "falling"
+                        },
+                        {
+                            "label": "Only rising",
+                            "value": "rising"
+                        }
                     ],
                     "xs": 12,
                     "sm": 6,

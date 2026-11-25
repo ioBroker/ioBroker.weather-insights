@@ -695,6 +695,28 @@ class WeatherInsightsAdapter extends adapter_core_1.Adapter {
                 this.log.info(`Cold front detected at ${new Date(front.at).toISOString()}`);
             }
         }
+        // --- pressure course for charts: measured (or forecast) past, forecast future shifted by the bias
+        if (ps) {
+            const course = [];
+            const startHour = Math.floor((now - 24 * series_1.HOUR) / series_1.HOUR) * series_1.HOUR;
+            for (let ts = startHour; ts <= now; ts += series_1.HOUR) {
+                const v = ps.buffer.valueAt(ts);
+                if (v !== undefined) {
+                    course.push([ts, (0, physics_1.round)(v, 1), ps.source === 'sensor' ? 0 : 1]);
+                }
+            }
+            if (fc) {
+                const fNow = (0, forecast_1.forecastValueAt)(fc, 'pressure', now);
+                const shift = ps.source === 'sensor' && p !== undefined && fNow !== undefined ? p - fNow : 0;
+                if (p !== undefined) {
+                    course.push([now, (0, physics_1.round)(p, 1), ps.source === 'sensor' ? 0 : 1]);
+                }
+                for (const pt of (0, forecast_1.forecastPoints)(fc, 'pressure', now + 1, now + 48 * series_1.HOUR)) {
+                    course.push([pt.ts, (0, physics_1.round)(pt.v + shift, 1), 1]);
+                }
+            }
+            await this.set('pressure.course', JSON.stringify(course));
+        }
         // --- forecast comparison
         if (fc && ps?.source === 'sensor' && p !== undefined) {
             const fp = (0, forecast_1.forecastValueAt)(fc, 'pressure', now);

@@ -53,14 +53,16 @@
     "test:unit": "mocha test/insights.test.js --exit",
     "lint": "eslint -c eslint.config.mjs",
     "build": "tsc -p tsconfig.build.json",
+    "build:webcomponents": "npm --prefix src-webcomponents ci && npm --prefix src-webcomponents run build",
     "check": "tsc --noEmit",
-    "update-packages": "npx -y npm-check-updates --upgrade",
+    "update-packages": "npx -y npm-check-updates --upgrade && cd src-webcomponents && npx -y npm-check-updates --upgrade",
     "release": "release-script",
     "test:package": "mocha test/package.test.js --exit",
     "test:integration": "mocha test/testAdapter.test.js --exit",
     "release-patch": "release-script patch --yes --no-update-lockfile",
     "release-minor": "release-script minor --yes --no-update-lockfile",
-    "release-major": "release-script major --yes --no-update-lockfile"
+    "release-major": "release-script major --yes --no-update-lockfile",
+    "npm": "npm i && cd src-webcomponents && npm i"
   },
   "bugs": {
     "url": "https://github.com/ioBroker/ioBroker.weather-insights/issues"

@@ -1,4 +1,6 @@
 {
+    "Overview": "概览",
+    "The same view is available as a widget in vis-2, devices and Aura.": "同样的视图也可作为 vis-2、devices 和 Aura 中的小部件使用。",
     "Sensors": "传感器",
     "Every field is optional. If a sensor is not set, the value of the Open-Meteo forecast is used.": "所有字段均为可选。未设置传感器时，使用 Open-Meteo 预报值。",
     "Outdoor sensors": "室外传感器",
