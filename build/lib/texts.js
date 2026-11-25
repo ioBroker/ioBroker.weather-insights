@@ -88,12 +88,12 @@ const TEXTS = {
     'health.rising': { en: 'pressure rising {v} hPa', de: 'Luftdruck steigt um {v} hPa' },
     'health.window': { en: '{from}-{to}', de: '{from}-{to} Uhr' },
     'health.analysis.few': {
-        en: '{days} days recorded, {mig} with migraine. At least 14 days and 3 migraine days are needed for a suggestion.',
-        de: '{days} Tage erfasst, davon {mig} mit Migräne. Für eine Empfehlung braucht es mindestens 14 Tage und 3 Migränetage.',
+        en: 'Days recorded: {days}, with migraine: {mig}. At least 14 days and 3 migraine days are needed for a suggestion.',
+        de: 'Erfasste Tage: {days}, davon mit Migräne: {mig}. Für eine Empfehlung braucht es mindestens 14 Tage und 3 Migränetage.',
     },
     'health.analysis.result': {
-        en: '{days} days recorded, {mig} with migraine. Largest 6 h change on migraine days {avgMig} hPa, on other days {avgOther} hPa. Suggested sensitivity: {sens}.',
-        de: '{days} Tage erfasst, davon {mig} mit Migräne. Größte 6-h-Änderung an Migränetagen {avgMig} hPa, an anderen Tagen {avgOther} hPa. Empfohlene Empfindlichkeit: {sens}.',
+        en: 'Days recorded: {days}, with migraine: {mig}. Largest 6 h change on migraine days {avgMig} hPa, on other days {avgOther} hPa. Suggested sensitivity: {sens}.',
+        de: 'Erfasste Tage: {days}, davon mit Migräne: {mig}. Größte 6-h-Änderung an Migränetagen {avgMig} hPa, an anderen Tagen {avgOther} hPa. Empfohlene Empfindlichkeit: {sens}.',
     },
     'sensitivity.low': { en: 'low', de: 'niedrig' },
     'sensitivity.normal': { en: 'normal', de: 'normal' },
@@ -133,7 +133,8 @@ function t(key, lang, vars) {
     let text = entry ? entry[lang] || entry.en : key;
     if (vars) {
         for (const [k, v] of Object.entries(vars)) {
-            text = text.replace(`{${k}}`, String(v));
+            const str = typeof v === 'number' && lang === 'de' ? String(v).replace('.', ',') : String(v);
+            text = text.replace(`{${k}}`, str);
         }
     }
     return text;

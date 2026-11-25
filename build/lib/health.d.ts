@@ -33,7 +33,7 @@ export declare function healthLevel(abs6h: number, factor?: number): number;
 /**
  * Analyses one local day. The points must be hourly (full hours) and should include the 24 hours
  * before the day so that windows ending early in the day are complete.
- * Returns null if no 6 h window ends within the day.
+ * A window belongs to the day that holds its middle. Returns null if no 6 h window belongs to the day.
  */
 export declare function analyzeDay(points: Point[], date: string, offsetSec: number, factor?: number, direction?: HealthDirection): DayHealth | null;
 export interface DiaryEntry {

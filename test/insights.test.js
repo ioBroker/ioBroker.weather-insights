@@ -127,6 +127,18 @@ describe('health', () => {
         expect(new Date(res.windows[6].from).toISOString()).to.equal('2026-01-11T06:00:00.000Z');
         expect(analyzeDay(points, '2026-01-11', 0, 1, 'rising').level).to.equal(0);
         expect(dayKey(day1 + 23 * HOUR, 3600)).to.equal('2026-01-11');
+        // a fall from 18:00 to 00:00 belongs to the day it happened on, not to the next one
+        const late = points.map(p => ({
+            ts: p.ts,
+            v:
+                p.ts >= day1 + 18 * HOUR && p.ts <= day1 + 24 * HOUR
+                    ? 1015 - (p.ts - day1 - 18 * HOUR) / HOUR
+                    : p.ts > day1 + 24 * HOUR
+                      ? 1009
+                      : 1015,
+        }));
+        expect(analyzeDay(late, '2026-01-10', 0).windows[6].change).to.equal(-6);
+        expect(analyzeDay(late, '2026-01-11', 0).windows[6].change).to.equal(-3); // only the window around midnight
     });
     it('suggests a sensitivity from the diary', () => {
         const entries = [];

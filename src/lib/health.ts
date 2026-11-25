@@ -55,7 +55,7 @@ export function healthLevel(abs6h: number, factor = 1): number {
 /**
  * Analyses one local day. The points must be hourly (full hours) and should include the 24 hours
  * before the day so that windows ending early in the day are complete.
- * Returns null if no 6 h window ends within the day.
+ * A window belongs to the day that holds its middle. Returns null if no 6 h window belongs to the day.
  */
 export function analyzeDay(
     points: Point[],
@@ -74,7 +74,8 @@ export function analyzeDay(
     for (const w of HEALTH_WINDOWS) {
         let best: WindowChange | undefined;
         for (const [ts, v] of byTs) {
-            if (dayKey(ts, offsetSec) !== date) {
+            // the window belongs to the day that holds its middle
+            if (dayKey(ts - (w * HOUR) / 2, offsetSec) !== date) {
                 continue;
             }
             const start = byTs.get(ts - w * HOUR);
