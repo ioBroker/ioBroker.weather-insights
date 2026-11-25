@@ -31,9 +31,19 @@ configured is taken from the forecast of the current hour.
 | `forecast`      | measured minus forecast pressure and temperature (shows a wrong altitude setting or a badly placed sensor)                                                        |
 | `summary`       | highest active weather warning and its text                                                                                                                        |
 
+`pressure.course` holds the hourly sea-level pressure from 24 h ago to 48 h ahead as JSON (`[[ts, hPa, 0 measured | 1 forecast]]`);
+the forecast part is shifted by the difference between sensor and forecast, so the curve has no jump.
+
 `info.sources` shows for every input whether it came from the sensor or from the forecast.
 
 Text states are written in German if the system language is German, otherwise in English.
+
+## Widget
+
+The web component `<iob-weather-insights>` shows the pressure with tendency and Zambretti forecast, the pressure course
+(measured solid, forecast dashed, the windows of the strongest change shaded in the colour of the weather-sensitivity
+level), the active warnings and the levels for today, tomorrow and the day after. It is available in vis-2, devices and
+Aura, and on the tab **Overview** of the instance settings (admin 8.3.10 or newer).
 
 ## Configuration
 
@@ -92,7 +102,8 @@ both groups and `health.suggestedSensitivity` names the sensitivity that separat
 
 ### **WORK IN PROGRESS**
 
-- (@GermanBluefox) initial release
+- (@GermanBluefox) initial release: pressure tendency, Zambretti, storm, humidity, ventilation, wind, frost, fog, thunderstorms, fronts and weather sensitivity
+- (@GermanBluefox) web component for vis-2, devices, Aura and the admin overview
 
 ## License
 

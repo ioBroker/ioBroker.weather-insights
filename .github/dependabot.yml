@@ -3,7 +3,9 @@ version: 2
 updates:
 
   - package-ecosystem: "npm"
-    directory: "/"
+    directories:
+      - "/"
+      - "/src-webcomponents"
     schedule:
       interval: "cron"
       timezone: "Europe/Berlin"
@@ -12,6 +14,9 @@ updates:
     cooldown:
       default-days: 7
     versioning-strategy: "increase"
+    ignore:
+      - dependency-name: "@types/node"
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: "github-actions"
     directory: "/"

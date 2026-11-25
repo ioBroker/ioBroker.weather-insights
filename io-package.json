@@ -1,22 +1,8 @@
 {
   "common": {
     "name": "weather-insights",
-    "version": "0.0.1",
-    "news": {
-      "0.0.1": {
-        "en": "initial release",
-        "de": "Erstveröffentlichung",
-        "ru": "первый релиз",
-        "pt": "lançamento inicial",
-        "nl": "eerste release",
-        "fr": "première version",
-        "it": "rilascio iniziale",
-        "es": "lanzamiento inicial",
-        "pl": "pierwsze wydanie",
-        "uk": "перший реліз",
-        "zh-cn": "初始版本"
-      }
-    },
+    "version": "0.0.0",
+    "news": {},
     "titleLang": {
       "en": "Weather insights",
       "de": "Wetter-Schlussfolgerungen",
