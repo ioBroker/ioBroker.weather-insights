@@ -99,8 +99,7 @@ both groups and `health.suggestedSensitivity` names the sensitivity that separat
    Placeholder for the next version (at the beginning of the line):
    ### **WORK IN PROGRESS**
 -->
-
-### **WORK IN PROGRESS**
+### 0.0.1 (2026-11-25)
 
 - (@GermanBluefox) initial release: pressure tendency, Zambretti, storm, humidity, ventilation, wind, frost, fog, thunderstorms, fronts and weather sensitivity
 - (@GermanBluefox) web component for vis-2, devices, Aura and the admin overview

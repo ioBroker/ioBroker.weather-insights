@@ -1,6 +1,6 @@
 {
   "name": "iobroker.weather-insights",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Derives conclusions from weather sensors and forecasts: pressure tendency, storm risk, Zambretti forecast, fog, frost, fronts, ventilation and weather sensitivity (migraine)",
   "author": {
     "name": "bluefox",

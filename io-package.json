@@ -1,8 +1,22 @@
 {
   "common": {
     "name": "weather-insights",
-    "version": "0.0.0",
-    "news": {},
+    "version": "0.0.1",
+    "news": {
+      "0.0.1": {
+        "en": "Initial release: pressure tendency, Zambretti forecast, storm, humidity, ventilation, wind, frost, fog, thunderstorms, fronts and weather sensitivity\nWeb component for vis-2, devices, Aura and the admin overview",
+        "de": "Erste Version: Drucktendenz, Zambretti-Vorhersage, Sturm, Feuchte, Lüftung, Wind, Frost, Nebel, Gewitter, Fronten und Wetterfühligkeit\nWeb Component für vis-2, Geräte, Aura und die Übersicht im Admin",
+        "ru": "Первый выпуск: тенденция давления, прогноз Замбретти, шторм, влажность, проветривание, ветер, мороз, туман, грозы, фронты и метеочувствительность\nВеб-компонент для vis-2, devices, Aura и обзора в админке",
+        "pt": "Primeira versão: tendência da pressão, previsão Zambretti, tempestade, humidade, ventilação, vento, geada, nevoeiro, trovoadas, frentes e sensibilidade ao tempo\nComponente web para vis-2, devices, Aura e a vista geral no admin",
+        "nl": "Eerste release: luchtdruktendens, Zambretti-voorspelling, storm, luchtvochtigheid, ventilatie, wind, vorst, mist, onweer, fronten en weergevoeligheid\nWebcomponent voor vis-2, devices, Aura en het overzicht in admin",
+        "fr": "Première version : tendance de la pression, prévision Zambretti, tempête, humidité, aération, vent, gel, brouillard, orages, fronts et sensibilité météo\nComposant web pour vis-2, devices, Aura et l'aperçu dans admin",
+        "it": "Prima versione: tendenza della pressione, previsione Zambretti, tempesta, umidità, ventilazione, vento, gelo, nebbia, temporali, fronti e meteoropatia\nComponente web per vis-2, devices, Aura e la panoramica nell'admin",
+        "es": "Primera versión: tendencia de la presión, pronóstico Zambretti, tormenta, humedad, ventilación, viento, helada, niebla, tormentas eléctricas, frentes y sensibilidad al tiempo\nComponente web para vis-2, devices, Aura y el resumen en admin",
+        "pl": "Pierwsze wydanie: tendencja ciśnienia, prognoza Zambrettiego, sztorm, wilgotność, wietrzenie, wiatr, przymrozek, mgła, burze, fronty i meteopatia\nKomponent webowy dla vis-2, devices, Aura i przeglądu w adminie",
+        "uk": "Перший випуск: тенденція тиску, прогноз Замбретті, шторм, вологість, провітрювання, вітер, мороз, туман, грози, фронти та метеочутливість\nВеб-компонент для vis-2, devices, Aura та огляду в адмінці",
+        "zh-cn": "首个版本：气压趋势、Zambretti 预报、风暴、湿度、通风、风、霜冻、雾、雷暴、锋面和天气敏感\n适用于 vis-2、devices、Aura 和管理界面概览的 Web 组件"
+      }
+    },
     "titleLang": {
       "en": "Weather insights",
       "de": "Wetter-Schlussfolgerungen",
